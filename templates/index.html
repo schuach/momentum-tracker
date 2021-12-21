@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Momentum Tracker</title>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+
+<body>
+<div>
+    <h1>Momentum</h1>
+    <div class="resources">
+        <button onclick="update_state('momentum', -1)">-</button>
+        <span id="momentum">{{ state.momentum }}</span>
+        <button onclick="update_state('momentum', 1)">+</button>
+    </div>
+</div>
+
+<div>
+    <h1>Threat</h1>
+    <div class="resources">
+        <button onclick="update_state('threat', -1)">-</button>
+        <span id="threat">{{ state.threat }}</span>
+        <button onclick="update_state('threat', 1)">+</button>
+    </div>
+</div>
+
+<script>
+    const interval = setInterval(function () {
+        update_state("read", 0)
+    }, 5000);
+</script>
+
+</body>
+</html>
